@@ -1,10 +1,27 @@
 package MazeCodePackage;
 import java.util.Scanner;
+import java.util.Random;
 public class MazeCode {
 public static void main(String[] args) {
 	Scanner entrada = new Scanner (System.in);
+	Random aleatorio = new Random();
 	
-	 String nickname;
+	//var nome
+	String nickname;
+	
+	//pontos de vida
+	int vida = 5;
+	
+	//direcao
+	int direcao = 0;
+	
+	//teste sua sorte
+	int teste = 0;
+	int sorte;
+	
+	//var primeira questao
+	String res1 = "A";
+	int tentativa = 0;
 	 
 	 // fazer menu para entrar no jogo 
 	 System.out.print("Digite seu nome para iniciar o jogo: ");
@@ -33,34 +50,215 @@ public static void main(String[] args) {
 	 	+ "que deveria seguir no mapa e começou a correr. \n");
 	 		
 	 // primeira escolha de direcao
+	 System.out.println("Para qual lado deseja seguir?");
+	 System.out.println("1 - direita");
+	 System.out.println("2 - Esquerda");
+	 direcao = entrada.nextInt();
 	 
 	 System.out.print(" Depois de 40 minutos correndo, entrando em corredores atrás de corredores, e ouvindo barulhos esquisitos, ficou à frente de uma longa porta de puro aço, \n"
 		+ "onde estava escrito “TESTE 1”, e logo ao lado tinha uma caixinha com um aparelho semelhante à um ipad dentro, "+nickname+" o pegou e uma mensagem de áudio começou \n"
 		+ "a ser reproduzida “Estes testes consistem em 10 perguntas, cada uma com 4 alternativas, se acertar todas estará livre deste labirinto, senão, virará comida de verdugos, \n\n");
 	 
 	 
-	 // primeiro questionario"
+	 // primeiro questionario
 	 
-	System.out.println("“PRIMEIRA PERGUNTA”\n");
-	
-	
+	 if(direcao == 2) {
+			System.out.println("“PRIMEIRA PERGUNTA”. \n");
+			System.out.println("O que são números binários: ");
+			System.out.println("A- Base numerica de dois algarismos 0 e 1");
+			System.out.println("B- Numeros que se multiplicam por 2");
+			System.out.println("C- Numeros pares");
+			System.out.println("D- Numeros primos");
+			System.out.println("E- Numeros que são multiplos de 2");
+			do {
+				
+				res1 = entrada.next().toUpperCase();
+				switch(res1) {
+				case "A":
+					System.out.println("Resposta correta \n");
+					res1 = "A";
+					break;
+				case "B":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "C":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "D":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "E":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				}
+			}while(res1 != "A");
+			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+
+			}
+			else if(direcao == 1) {
+				System.out.println("“PRIMEIRA PERGUNTA”. \n");
+				System.out.println("Qual numero decimal é representado pelo numero binário 11: ");
+				System.out.println("A- 11");
+				System.out.println("B- 2");
+				System.out.println("C- 1");
+				System.out.println("D- 3");
+				System.out.println("E- 1");
+				do {
+					
+					res1 = entrada.next().toUpperCase();
+					switch(res1) {
+					case "A":
+						System.out.println("Resposta incorreta");
+						tentativa++;
+						vida--;
+						break;
+					case "B":
+						System.out.println("Resposta incorreta");
+						tentativa++;
+						vida--;
+						break;
+					case "C":
+						System.out.println("Resposta incorreta");
+						tentativa++;
+						vida--;
+						break;
+					case "D":
+						System.out.println("Resposta correta \n");
+						res1 = "D";
+						break;
+					case "E":
+						System.out.println("Resposta incorreta");
+						tentativa++;
+						vida--;
+						break;
+					}
+				}while(res1 != "D");
+				System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			}
+	 
 	//continuacao da historia
 	
 	System.out.println("Acertando então a resposta, a porta à sua frente se abriu e "+nickname+" continuou avançando entre as altas paredes de aço e cimento");
 	
 	// segunda escolha de direcao
+	System.out.println("Para qual lado deseja seguir?");
+	System.out.println("1 - direita");
+	System.out.println("2 - Esquerda");
+	direcao = entrada.nextInt();
 	
 	System.out.println("Após caminhar por alguns minutos chegando então em uma porta totalmente idêntica à primeira, mas moldado neste estava escrito “TESTE 2”\n\n"
 			+ nickname +" pegou o aparelho ao lado e a pergunta apareceu na tela. \n");
 	
 	// segundo questionario
 	
-	System.out.println("“SEGUNDA PERGUNTA”.\n");
-	
+	if (direcao == 2) {	
+		System.out.println("“SEGUNDA PERGUNTA” \n");
+		System.out.println("O que são portas lógicas e circuitos lógicos: ");
+		System.out.println("A- São portas inteligentes");
+		System.out.println("B- São circuitos que operam e trabalham com um ou mais sinais lógicos de entrada para produzir uma e somente uma saída");
+		System.out.println("C- Uma linguagem de programação obsoleta, usada para programar maquinas mais antigas");
+		System.out.println("D- São portas de ligação para se conectar a uma rede");
+		System.out.println("E- Nenhuma das alternativas acima");
+		do {
+			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta correta \n");
+				res1 = "B";
+				break;
+			case "C":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "D":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "E":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			}
+		}while(res1 != "B");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+		else if(direcao == 1) {
+			System.out.println("“SEGUNDA PERGUNTA” \n");
+			System.out.println("Quais são os tipos de portas lógicas ");
+			System.out.println("A- AND, OR, NOT, NAND e NOAR");
+			System.out.println("B- AND, OR, NOT, NAND, NOT, XOR e XNOR");
+			System.out.println("C- AND, OR, DONOT, DOOR");
+			System.out.println("D- A e B");
+			System.out.println("E- AND, OR, NOT, NAND, NOR, XOR e XNOR");
+			do {
+				
+				res1 = entrada.next().toUpperCase();
+				switch(res1) {
+				case "A":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "B":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "C":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "D":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "E":
+					System.out.println("Resposta correta \n");
+					res1 = "E";
+					break;
+				}
+			}while(res1 != "E");
+			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+	// teste sua sorte
+		System.out.println("\n Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
+		System.out.println("1. SIM");
+		System.out.println("2. NÃO");
+		teste = entrada.nextInt();
+		if (teste == 1) {
+			System.out.println("Que a sorte esteja a seu favor.\n");
+			sorte = aleatorio.nextInt(5) - 2 ;
+			vida = vida+sorte;
+			System.out.println("O seu teste da sorte foi: " + sorte);
+			System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+		}
 	//continuacao da historia
 	System.out.println("Continuou avançando, desta vez os barulhos esquisitos que vinha ouvindo no caminho parecia estar ficando cada vez mais próximos, o que o deixou um pouco aflito. \n");
 	
 	// terceira escolha de direcao
+	System.out.println("Para qual lado deseja seguir?");
+	System.out.println("1 - direita");
+	System.out.println("2 - Esquerda");
+	direcao = entrada.nextInt();
 	
 	System.out.println("Mas depois de correr cerca de 30 minutos chegou em um corredor sem saída, apenas com um círculo com cerca de 1 metro de diâmetro, nele escrito “TESTE 3”, \n"
 		+ "que poderia ser uma passagem, desta vez não havia nenhum aparelho para que ele pudesse responder ao teste 3, procurou em todos os cantos e não conseguiu encontrar absolutamente nada,\n"
@@ -69,14 +267,99 @@ public static void main(String[] args) {
 		+ nickname + " o pegou e a pergunta apareceu. \n");
 	
 	// terceiro questionario
-	
-	System.out.println("“TERCEIRA PERGUNTA”.\n");
+
+	if (direcao==1) {
+		System.out.println("“TERCEIRA PERGUNTA” \n");
+		System.out.println("Qual sinal representa a porta E (AND):");
+		System.out.println("A- +");
+		System.out.println("B- *");
+		System.out.println("C- !");
+		System.out.println("D- -");
+		System.out.println("E- /");
+		do {
+			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta correta \n");
+				res1 = "B";
+				
+				break;
+			case "C":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "D":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "E":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			}
+		}while(res1 != "B");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+	}
+	else if(direcao == 2) {
+		System.out.println("“TERCEIRA PERGUNTA” \n");
+		System.out.println("Qual sinal representa a porta OU:");
+		System.out.println("A- *");
+		System.out.println("B- +");
+		System.out.println("C- !");
+		System.out.println("D- -");
+		System.out.println("E- /");
+		do {
+			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta correta \n");
+				res1 = "B";
+				
+				break;
+			case "C":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "D":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "E":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			}
+		}while(res1 != "B");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+	}
 	
 	//continuacao da historia
 	System.out.print(" Quando respondeu corretamente, o círculo se abriu por completo e ele se arrastou adentro até sair do outro lado. Tomou um pouco de água, respirou profundamente, \n"
 			+ "e começou a corrida novamente. \n");
 	
 	//quarta escolha de direcao
+	System.out.println("Para qual lado deseja seguir?");
+	System.out.println("1 - direita");
+	System.out.println("2 - Esquerda");
+	direcao = entrada.nextInt();
 	
 	System.out.print("O medo era notável em sua face, mas "+nickname+" não parava, continuava avançando a cada segundo que passava, então chegou em um corredor que havia 4 portas, \n"
 			+ "na parede estava pichado “TESTE 4”, sem entender, pegou o aparelho que estava entre as duas portas do meio e uma outra mensagem de voz apareceu “Parabéns "+nickname+",\n"
@@ -84,23 +367,197 @@ public static void main(String[] args) {
 			+ "as outras três terá monstros que nunca foram derrotados antes, então se errar, considere-se morto.”. A vós se calou e a pergunta apareceu na tela. \n\n");
 	
 	// quarto questionario
-	System.out.println("“QUARTA PERGUNTA”.\n");
-			
-	// continuacao da historia
+	if(direcao==1) {
 		
+		System.out.println("“QUARTA PERGUNTA” \n");
+		System.out.println("Quais são as letras que compõem os numeros hexadecimais:");
+		System.out.println("A- A,B,C e D");
+		System.out.println("B- A,B,C,D e E");
+		System.out.println("C- A,B,C,D,E e F");
+		System.out.println("D- As primeiras 16 letras do alfabeto");
+		System.out.println("E- O sistema hexadecimal não possuir letras");
+		do {
+			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "C":
+				System.out.println("Resposta correta \n");
+				res1 = "C";
+				break;
+			case "D":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "E":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			}
+		}while(res1 != "C");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+		else if(direcao == 2) {
+			System.out.println("“QUARTA PERGUNTA” \n");
+			System.out.println("Como fica o numero hexadecimal 12A em decimal:");
+			System.out.println("A- 289");
+			System.out.println("B- 290");
+			System.out.println("C- 298");
+			System.out.println("D- 297");
+			System.out.println("E- 300");
+			do {
+				
+				res1 = entrada.next().toUpperCase();
+				switch(res1) {
+				case "A":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "B":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "C":
+					System.out.println("Resposta correta \n");
+					res1 = "C";
+					break;
+				case "D":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "E":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				}
+			}while(res1 != "C");
+			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+	// continuacao da historia
+	
+	// teste sua sorte
+	System.out.println("\n Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
+	System.out.println("1. SIM");
+	System.out.println("2. NÃO");
+	teste = entrada.nextInt();
+	if (teste == 1) {
+		System.out.println("Que a sorte esteja a seu favor.\n");
+		sorte = aleatorio.nextInt(5) - 2 ;
+		vida = vida+sorte;
+		System.out.println("O seu teste da sorte foi: " + sorte);
+		System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+	}
+	
 	System.out.println("Quando respondeu, as portas continuaram intactas, não entendia o porquê, mesmo se tivesse errado a resposta uma das portas abriria, então olhou novamente para \n"
 			+ "o aparelho e a mensagem de voz voltou “Ah, esquecemos de te avisar! Agora para cada passagem que terá que ser aberta, duas perguntas terão que ser respondidas, \n"
 			+ "se errar alguma, já sabe! Então a quinta pergunta apareceu na tela. \n ");
 			
 	//quinto questionario
 	
-	System.out.println("“QUINTA PERGUNTA” \n");
+	if (direcao == 2) {
+		System.out.println("“QUINTA PERGUNTA” \n");
+		System.out.println("Como fica o número 3AF em decimal:");
+		System.out.println("A- 942");
+		System.out.println("B- 943");
+		System.out.println("C- 944");
+		System.out.println("D- 945");
+		System.out.println("E- 946");
+		do {
 			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta correta \n");
+				res1 = "B";
+				vida--;
+				break;
+			case "C":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				break;
+			case "D":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "E":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			}
+		}while(res1 != "B");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+		else if (direcao == 1) {
+			System.out.println("“QUINTA PERGUNTA” \n");
+			System.out.println("Se 15 decimal é F em hexadecimal, como fica o numero 16:");
+			System.out.println("A- 1A");
+			System.out.println("B- 16");
+			System.out.println("C- 10");
+			System.out.println("D- A1");
+			System.out.println("E- A6");
+			do {
+				
+				res1 = entrada.next().toUpperCase();
+				switch(res1) {
+				case "A":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "B":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "C":
+					System.out.println("Resposta correta \n");
+					res1 = "C";
+					break;
+				case "D":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "E":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				}
+			}while(res1 != "C");
+			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}		
 	//continuacao da historia
 			
 	System.out.println("Depois que as respondeu, na tela do aparelho apareceu “Respostas corretas”, então uma das portas se abriu e ele avançou pelo labirinto.\n");
 			
 	//quinta escolha de direcao
+	System.out.println("Para qual lado deseja seguir?");
+	System.out.println("1 - direita");
+	System.out.println("2 - Esquerda");
+	direcao = entrada.nextInt();
 	
 	System.out.println(" Sua velocidade já estava se reduzindo, "+nickname+" se sentia um pouco cansado, parou, olhou no mapa o caminho, \n"
 			+ "tomou um pouco de água e percebeu que suas memórias estavam voltando, conseguiu se lembrar da neve, da chuva e de sua casa, o que o deixou mais motivado,\n"
@@ -110,13 +567,187 @@ public static void main(String[] args) {
 			+ nickname+" o pegou e a sexta pergunta apareceu. \n");
 	
 	//sexto questionario
-	System.out.println("“SEXTA PERGUNTA”. \n");
-	
+	 
+	 if(direcao == 2) {
+	System.out.println("“SEXTA PERGUNTA”\n");
+	System.out.println("Em um computador o número 77(10) será representado na base binária por: ");
+	System.out.println("A- 1001111");
+	System.out.println("B- 1010111");
+	System.out.println("C- 1001101");
+	System.out.println("D- 1001010");
+	System.out.println("E- 1001001");
+	do {
+		
+		res1 = entrada.next().toUpperCase();
+		switch(res1) {
+		case "A":
+			System.out.println("Resposta incorreta");
+			tentativa++;
+			vida--;
+			break;
+		case "B":
+			System.out.println("Resposta incorreta");
+			tentativa++;
+			vida--;
+			break;
+		case "C":
+			System.out.println("Resposta correta \n");
+			res1 = "C";
+			break;
+		case "D":
+			System.out.println("Resposta incorreta");
+			tentativa++;
+			vida--;
+			break;
+		case "E":
+			System.out.println("Resposta incorreta");
+			tentativa++;
+			vida--;
+			break;
+		}
+	}while(res1 != "C");
+	System.out.println("Os pontos de vida atual são: "+vida+"\n");
+	 }
+	 
+	 else if(direcao == 1) {
+		
+				System.out.println("“SEXTA PERGUNTA”\n");
+				System.out.println("Em um computador o número 104(10) será representado na base binária por: ");
+				System.out.println("A- 01101001");
+				System.out.println("B- 01101000");
+				System.out.println("C- 01101010");
+				System.out.println("D- 01101011");
+				System.out.println("E- 01011000");
+				do {
+					res1 = entrada.next().toUpperCase();
+					switch(res1) {
+					case "A":
+						System.out.println("Resposta incorreta");
+						tentativa++;
+						vida--;
+						break;
+					case "B":
+						System.out.println("Resposta correta\n");
+						res1 = "B";
+						break;
+					case "C":
+						System.out.println("Resposta incorreta");
+						tentativa++;
+						vida--;
+						break;
+					case "D":
+						System.out.println("Resposta incorreta");
+						tentativa++;
+						vida--;
+						break;
+					case "E":
+						System.out.println("Resposta incorreta");
+						tentativa++;
+						vida--;
+						break;
+					}
+				}while(res1 != "B");
+				System.out.println("Os pontos de vida atual são: "+vida+"\n");
+	 }
+	// teste sua sorte
+	 System.out.println("\n Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
+		System.out.println("1. SIM");
+		System.out.println("2. NÃO");
+		teste = entrada.nextInt();
+		if (teste == 1) {
+			System.out.println("Que a sorte esteja a seu favor.\n");
+			sorte = aleatorio.nextInt(5) - 2 ;
+			vida = vida+sorte;
+			System.out.println("O seu teste da sorte foi: " + sorte);
+			System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+		}
+		
 	System.out.println("Respondeu-a e a sétima apareceu logo em seguida. \n");
 	
 	//setimo questionario
-	System.out.println("“SÉTIMA PERGUNTA” \n");
-	
+	if(direcao == 1) {
+		System.out.println("“SETIMA PERGUNTA”.\n");
+		
+		System.out.println("O número correspondende a A2(16) em decimal é: ");
+		System.out.println("A- 161");
+		System.out.println("B- 162");
+		System.out.println("C- 163");
+		System.out.println("D- 164");
+		System.out.println("E- 160");
+		do {
+			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta correta \n");
+				res1 = "B";
+				break;
+			case "C":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "D":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "E":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			}
+		}while(res1 != "B");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+		
+		else if (direcao == 2) {
+			System.out.println("“SETIMA PERGUNTA”.\n");
+			
+			System.out.println("O número correspondende a F0CA(16) em decimal é: ");
+			System.out.println("A- 61624");
+			System.out.println("B- 61643");
+			System.out.println("C- 61644");
+			System.out.println("D- 61202");
+			System.out.println("E- 64192");
+			do {
+				
+				res1 = entrada.next().toUpperCase();
+				switch(res1) {
+				case "A":
+					System.out.println("Resposta correta \n");
+					res1 = "A";
+					break;
+				case "B":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "C":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "D":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "E":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				}
+			}while(res1 != "A");
+			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
 	//continuacao da historia
 	System.out.print(" Quando "+nickname+" as respondeu, ficou se perguntando se tinha as acertado, e então a porta se abriu. "+nickname+" atravessou a porta e rapidamente \n"
 			+ "um flash de lembranças o atingiu em cheio, deixando-o atordoado e com uma dor de cabeça insuportável. Não sabia o que estava acontecendo. \n"
@@ -125,16 +756,195 @@ public static void main(String[] args) {
 			+ "a vós cessou, "+nickname+" se levantou, sabia que sua memória estava voltando pouco a pouco, olhou para sua frente, e seguiu. \n");
 	
 	//sexta escolha de direcao
+	System.out.println("Para qual lado deseja seguir?");
+	System.out.println("1 - direita");
+	System.out.println("2 - Esquerda");
+	direcao = entrada.nextInt();
 	
 	System.out.println(" Após caminhar por muito tempo chegou. O lugar era maravilhoso, parecia uma pequena vila, tinha vegetações, uma fonte sem água no centro, estátuas que ele acreditava \n"
 			+ "que era de alguns deuses, e uma porta vermelho-sangue que era impossível não ser notada. Thomas correu até ela, tinha as marcações grifadas na porta “TESTE 6” e “Cruel é bom!”,\n"
 			+ "não sabia o que aquilo significava, mas pressionou o botão e, ao invés de sair um aparelho semelhante a um ipad, na própria porta apareceu um televisor com as perguntas oitava e nona. \n");
 	
 	////oitavo questionario
-	System.out.println("“OITAVA PERGUNTA” \n"); 
+	if(direcao == 1) {
+		System.out.println("“OITAVA PERGUNTA”.\n");
+		
+		System.out.println("Qual número corresponde ao número 100(10) em octal");
+		System.out.println("A- 141");
+		System.out.println("B- 142");
+		System.out.println("C- 143");
+		System.out.println("D- 144");
+		System.out.println("E- 145");
+		do {
+			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "C":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "D":
+				System.out.println("Resposta correta\n");
+				res1 = "D";
+				break;
+			case "E":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			}
+		}while(res1 != "D");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+		else if(direcao == 2) {
+			System.out.println("“OITAVA PERGUNTA”.\n");
+			
+			System.out.println("Qual número corresponde ao número 567(10) em octal");
+			System.out.println("A- 1063");
+			System.out.println("B- 1065");
+			System.out.println("C- 1066");
+			System.out.println("D- 1067");
+			System.out.println("E- 1064");
+			do {
+				
+				res1 = entrada.next().toUpperCase();
+				switch(res1) {
+				case "A":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "B":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "C":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "D":
+					System.out.println("Resposta correta\n");
+					res1 = "D";
+					break;
+				case "E":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				}
+			}while(res1 != "D");
+			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+	// teste sua sorte
+	System.out.println("\n Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
+	System.out.println("1. SIM");
+	System.out.println("2. NÃO");
+	teste = entrada.nextInt();
+	if (teste == 1) {
+		System.out.println("Que a sorte esteja a seu favor.\n");
+		sorte = aleatorio.nextInt(5) - 2 ;
+		vida = vida+sorte;
+		System.out.println("O seu teste da sorte foi: " + sorte);
+		System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+	}
 	
 	// nono questionario
-	System.out.println("“NONA PERGUNTA” \n");
+	if(direcao == 2) {
+		System.out.println("“NONA PERGUNTA”.\n");
+		
+		System.out.println("Qual número em octal corresponde ao número bínario 11001: ");
+		System.out.println("A- 30");
+		System.out.println("B- 31");
+		System.out.println("C- 32");
+		System.out.println("D- 33");
+		System.out.println("E- 34");
+		do {
+			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta correta\n");
+				res1 = "B";
+				break;
+			case "C":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "D":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "E":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			}
+		}while(res1 !="B");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+		else if (direcao == 1) {
+			System.out.println("“NONA PERGUNTA”.\n");
+			
+			System.out.println("Qual número em octal corresponde ao número bínario 1010010: ");
+			System.out.println("A- 120");
+			System.out.println("B- 121");
+			System.out.println("C- 122");
+			System.out.println("D- 123");
+			System.out.println("E- 124");
+			do {
+				
+				res1 = entrada.next().toUpperCase();
+				switch(res1) {
+				case "A":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "B":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "C":
+					System.out.println("Resposta correta\n");
+					res1 = "C";
+					
+					break;
+				case "D":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "E":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				}
+			}while(res1 !="C");
+			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
 	
 	//continuacao da historia
 	System.out.println(" Ao lado do televisor havia um pequeno microfone, tomas o colocou na orelha e ouviu. “Extraordinário!” Dizia a voz “Você já está prestes a sair deste labirinto, \n"
@@ -151,7 +961,86 @@ public static void main(String[] args) {
 			+ "pegou o aparelho que estava ao lado e começou ler a décima pergunta.\n");
 	
 	// decimo questionario
-	System.out.println("“DÉCIMA PERGUNTA” \n");
+	if (direcao == 1) {
+		System.out.println("“DECIMA PERGUNTA” \n");
+		System.out.println("O número que correspondende ao número 52(16) em decimal é: ");
+		System.out.println("A- 78");
+		System.out.println("B- 80");
+		System.out.println("C- 79");
+		System.out.println("D- 81");
+		System.out.println("E- 82");
+		do {
+			
+			res1 = entrada.next().toUpperCase();
+			switch(res1) {
+			case "A":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "B":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "C":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "D":
+				System.out.println("Resposta incorreta");
+				tentativa++;
+				vida--;
+				break;
+			case "E":
+				System.out.println("Resposta correta \n");
+				res1 = "E";
+				break;
+			}
+		}while(res1 != "E");
+		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
+		else if(direcao == 1) {
+			System.out.println("“DECIMA PERGUNTA” \n");
+			System.out.println("O número que correspondende ao número 84(16) em decimal é: ");
+			System.out.println("A- 129");
+			System.out.println("B- 130");
+			System.out.println("C- 131");
+			System.out.println("D- 132");
+			System.out.println("E- 133");
+			do {
+				
+				res1 = entrada.next().toUpperCase();
+				switch(res1) {
+				case "A":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "B":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "C":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				case "D":
+					System.out.println("Resposta correta\n");
+					res1 = "D";
+					break;
+				case "E":
+					System.out.println("Resposta incorreta");
+					tentativa++;
+					vida--;
+					break;
+				}
+			}while(res1 != "D");
+			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		}
 	
 	// continuacao da historia
 	System.out.println(nickname+" respondeu e a porta se abriu de imediato. Atrás da porta havia dezenas de pessoas o olhando como se ele tivesse vindo de outro planeta, "+nickname+" se sentiu desconfortável,\n"
