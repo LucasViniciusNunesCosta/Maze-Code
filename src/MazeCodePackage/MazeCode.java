@@ -6,6 +6,7 @@ public static void main(String[] args) {
 	Scanner entrada = new Scanner (System.in);
 	Random aleatorio = new Random();
 	
+	System.out.println("Seja bem vindo ao MAZE CODE");
 	//var nome
 	String nickname;
 	
@@ -20,7 +21,7 @@ public static void main(String[] args) {
 	int sorte;
 	
 	//var primeira questao
-	String res1 = "A";
+	String resposta = "A";
 	int tentativa = 0;
 	 
 	 // fazer menu para entrar no jogo 
@@ -32,7 +33,7 @@ public static void main(String[] args) {
 	 
 	 
 	 System.out.println(" Algum tempo depois...");
-	 System.out.println(" Acordou assustado, estava em uma sala com uma pequena janela onde só podia ver muros pelo lado de fora,não sabia onde estava, \n"
+	 System.out.println("Acordou assustado, estava em uma sala com uma pequena janela onde só podia ver muros pelo lado de fora,não sabia onde estava, \n"
 	 	+ "não se lembrava de nada do que tinha acontecido, nem mesmo de sua vida antiga, apenas de seu primeiro nome, "+nickname+".");
 	 
 	 
@@ -72,11 +73,11 @@ public static void main(String[] args) {
 			System.out.println("E- Numeros que são multiplos de 2");
 			do {
 				
-				res1 = entrada.next().toUpperCase();
-				switch(res1) {
+				resposta = entrada.next().toUpperCase();
+				switch(resposta) {
 				case "A":
 					System.out.println("Resposta correta \n");
-					res1 = "A";
+					resposta = "A";
 					break;
 				case "B":
 					System.out.println("Resposta incorreta");
@@ -98,10 +99,18 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+				default:
+					System.out.println("Resposta inválida");
+					break;
 				}
-			}while(res1 != "A");
-			System.out.println("Os pontos de vida atual são: "+vida+"\n");
-
+				if(vida<=0) {
+					System.out.println("Os pontos de vida são: "+vida+"\n");
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			}while(resposta != "A");
+			System.out.println("Os pontos de vida são: "+vida+"\n");
+			
 			}
 			else if(direcao == 1) {
 				System.out.println("“PRIMEIRA PERGUNTA”. \n");
@@ -113,8 +122,8 @@ public static void main(String[] args) {
 				System.out.println("E- 1");
 				do {
 					
-					res1 = entrada.next().toUpperCase();
-					switch(res1) {
+					resposta = entrada.next().toUpperCase();
+					switch(resposta) {
 					case "A":
 						System.out.println("Resposta incorreta");
 						tentativa++;
@@ -132,16 +141,24 @@ public static void main(String[] args) {
 						break;
 					case "D":
 						System.out.println("Resposta correta \n");
-						res1 = "D";
+						resposta = "D";
 						break;
 					case "E":
 						System.out.println("Resposta incorreta");
 						tentativa++;
 						vida--;
 						break;
+					default:
+						System.out.println("Resposta inválida");
+						break;
 					}
-				}while(res1 != "D");
-				System.out.println("Os pontos de vida atual são: "+vida+"\n");
+					if(vida<=0) {
+						System.out.println("Os pontos de vida são: "+vida+"\n");
+						System.out.println("GAME OVER");
+						System.exit(0);
+					}
+				}while(resposta != "D");
+				System.out.println("Os pontos de vida são: "+vida+"\n");
 			}
 	 
 	//continuacao da historia
@@ -169,8 +186,8 @@ public static void main(String[] args) {
 		System.out.println("E- Nenhuma das alternativas acima");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -178,7 +195,7 @@ public static void main(String[] args) {
 				break;
 			case "B":
 				System.out.println("Resposta correta \n");
-				res1 = "B";
+				resposta = "B";
 				break;
 			case "C":
 				System.out.println("Resposta incorreta");
@@ -195,9 +212,17 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+			default:
+				System.out.println("Resposta inválida");
+				break;
 			}
-		}while(res1 != "B");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta != "B");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 		else if(direcao == 1) {
 			System.out.println("“SEGUNDA PERGUNTA” \n");
@@ -209,8 +234,8 @@ public static void main(String[] args) {
 			System.out.println("E- AND, OR, NOT, NAND, NOR, XOR e XNOR");
 			do {
 				
-				res1 = entrada.next().toUpperCase();
-				switch(res1) {
+				resposta = entrada.next().toUpperCase();
+				switch(resposta) {
 				case "A":
 					System.out.println("Resposta incorreta");
 					tentativa++;
@@ -233,11 +258,19 @@ public static void main(String[] args) {
 					break;
 				case "E":
 					System.out.println("Resposta correta \n");
-					res1 = "E";
+					resposta = "E";
+					break;
+				default:
+					System.out.println("Resposta inválida");
 					break;
 				}
-			}while(res1 != "E");
-			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+				if(vida<=0) {
+					System.out.println("Os pontos de vida são: "+vida+"\n");
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			}while(resposta != "E");
+			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 	// teste sua sorte
 		System.out.println("\n Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
@@ -250,6 +283,10 @@ public static void main(String[] args) {
 			vida = vida+sorte;
 			System.out.println("O seu teste da sorte foi: " + sorte);
 			System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+		}
+		if(vida<=0) {
+			System.out.println("GAME OVER");
+			System.exit(0);
 		}
 	//continuacao da historia
 	System.out.println("Continuou avançando, desta vez os barulhos esquisitos que vinha ouvindo no caminho parecia estar ficando cada vez mais próximos, o que o deixou um pouco aflito. \n");
@@ -278,8 +315,8 @@ public static void main(String[] args) {
 		System.out.println("E- /");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -287,7 +324,7 @@ public static void main(String[] args) {
 				break;
 			case "B":
 				System.out.println("Resposta correta \n");
-				res1 = "B";
+				resposta = "B";
 				
 				break;
 			case "C":
@@ -305,9 +342,17 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+			default:
+				System.out.println("Resposta inválida");
+				break;
 			}
-		}while(res1 != "B");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta != "B");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 	}
 	else if(direcao == 2) {
 		System.out.println("“TERCEIRA PERGUNTA” \n");
@@ -319,8 +364,8 @@ public static void main(String[] args) {
 		System.out.println("E- /");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -328,7 +373,7 @@ public static void main(String[] args) {
 				break;
 			case "B":
 				System.out.println("Resposta correta \n");
-				res1 = "B";
+				resposta = "B";
 				
 				break;
 			case "C":
@@ -346,9 +391,17 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+			default:
+				System.out.println("Resposta inválida");
+				break;
 			}
-		}while(res1 != "B");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta != "B");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 	}
 	
 	//continuacao da historia
@@ -378,8 +431,8 @@ public static void main(String[] args) {
 		System.out.println("E- O sistema hexadecimal não possuir letras");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -392,7 +445,7 @@ public static void main(String[] args) {
 				break;
 			case "C":
 				System.out.println("Resposta correta \n");
-				res1 = "C";
+				resposta = "C";
 				break;
 			case "D":
 				System.out.println("Resposta incorreta");
@@ -404,9 +457,17 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+			default:
+				System.out.println("Resposta inválida");
+				break;
 			}
-		}while(res1 != "C");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta != "C");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 		else if(direcao == 2) {
 			System.out.println("“QUARTA PERGUNTA” \n");
@@ -418,8 +479,8 @@ public static void main(String[] args) {
 			System.out.println("E- 300");
 			do {
 				
-				res1 = entrada.next().toUpperCase();
-				switch(res1) {
+				resposta = entrada.next().toUpperCase();
+				switch(resposta) {
 				case "A":
 					System.out.println("Resposta incorreta");
 					tentativa++;
@@ -432,7 +493,7 @@ public static void main(String[] args) {
 					break;
 				case "C":
 					System.out.println("Resposta correta \n");
-					res1 = "C";
+					resposta = "C";
 					break;
 				case "D":
 					System.out.println("Resposta incorreta");
@@ -444,9 +505,17 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+				default:
+					System.out.println("Resposta inválida");
+					break;
 				}
-			}while(res1 != "C");
-			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+				if(vida<=0) {
+					System.out.println("Os pontos de vida são: "+vida+"\n");
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			}while(resposta != "C");
+			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 	// continuacao da historia
 	
@@ -461,6 +530,10 @@ public static void main(String[] args) {
 		vida = vida+sorte;
 		System.out.println("O seu teste da sorte foi: " + sorte);
 		System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+	}
+	if(vida<=0) {
+		System.out.println("GAME OVER");
+		System.exit(0);
 	}
 	
 	System.out.println("Quando respondeu, as portas continuaram intactas, não entendia o porquê, mesmo se tivesse errado a resposta uma das portas abriria, então olhou novamente para \n"
@@ -479,8 +552,8 @@ public static void main(String[] args) {
 		System.out.println("E- 946");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -488,12 +561,12 @@ public static void main(String[] args) {
 				break;
 			case "B":
 				System.out.println("Resposta correta \n");
-				res1 = "B";
-				vida--;
+				resposta = "B";
 				break;
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
+				vida--;
 				break;
 			case "D":
 				System.out.println("Resposta incorreta");
@@ -505,9 +578,17 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+			default:
+				System.out.println("Resposta inválida");
+				break;
 			}
-		}while(res1 != "B");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta != "B");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 		else if (direcao == 1) {
 			System.out.println("“QUINTA PERGUNTA” \n");
@@ -519,8 +600,8 @@ public static void main(String[] args) {
 			System.out.println("E- A6");
 			do {
 				
-				res1 = entrada.next().toUpperCase();
-				switch(res1) {
+				resposta = entrada.next().toUpperCase();
+				switch(resposta) {
 				case "A":
 					System.out.println("Resposta incorreta");
 					tentativa++;
@@ -533,7 +614,7 @@ public static void main(String[] args) {
 					break;
 				case "C":
 					System.out.println("Resposta correta \n");
-					res1 = "C";
+					resposta = "C";
 					break;
 				case "D":
 					System.out.println("Resposta incorreta");
@@ -545,9 +626,17 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+				default:
+					System.out.println("Resposta inválida");
+					break;
 				}
-			}while(res1 != "C");
-			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+				if(vida<=0) {
+					System.out.println("Os pontos de vida são: "+vida+"\n");
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			}while(resposta != "C");
+			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}		
 	//continuacao da historia
 			
@@ -578,8 +667,8 @@ public static void main(String[] args) {
 	System.out.println("E- 1001001");
 	do {
 		
-		res1 = entrada.next().toUpperCase();
-		switch(res1) {
+		resposta = entrada.next().toUpperCase();
+		switch(resposta) {
 		case "A":
 			System.out.println("Resposta incorreta");
 			tentativa++;
@@ -592,7 +681,7 @@ public static void main(String[] args) {
 			break;
 		case "C":
 			System.out.println("Resposta correta \n");
-			res1 = "C";
+			resposta = "C";
 			break;
 		case "D":
 			System.out.println("Resposta incorreta");
@@ -604,9 +693,17 @@ public static void main(String[] args) {
 			tentativa++;
 			vida--;
 			break;
+		default:
+			System.out.println("Resposta inválida");
+			break;
 		}
-	}while(res1 != "C");
-	System.out.println("Os pontos de vida atual são: "+vida+"\n");
+		if(vida<=0) {
+			System.out.println("Os pontos de vida são: "+vida+"\n");
+			System.out.println("GAME OVER");
+			System.exit(0);
+		}
+	}while(resposta != "C");
+	System.out.println("Os pontos de vida são: "+vida+"\n");
 	 }
 	 
 	 else if(direcao == 1) {
@@ -619,8 +716,8 @@ public static void main(String[] args) {
 				System.out.println("D- 01101011");
 				System.out.println("E- 01011000");
 				do {
-					res1 = entrada.next().toUpperCase();
-					switch(res1) {
+					resposta = entrada.next().toUpperCase();
+					switch(resposta) {
 					case "A":
 						System.out.println("Resposta incorreta");
 						tentativa++;
@@ -628,7 +725,7 @@ public static void main(String[] args) {
 						break;
 					case "B":
 						System.out.println("Resposta correta\n");
-						res1 = "B";
+						resposta = "B";
 						break;
 					case "C":
 						System.out.println("Resposta incorreta");
@@ -645,9 +742,17 @@ public static void main(String[] args) {
 						tentativa++;
 						vida--;
 						break;
+					default:
+						System.out.println("Resposta inválida");
+						break;
 					}
-				}while(res1 != "B");
-				System.out.println("Os pontos de vida atual são: "+vida+"\n");
+					if(vida<=0) {
+						System.out.println("Os pontos de vida são: "+vida+"\n");
+						System.out.println("GAME OVER");
+						System.exit(0);
+					}
+				}while(resposta != "B");
+				System.out.println("Os pontos de vida são: "+vida+"\n");
 	 }
 	// teste sua sorte
 	 System.out.println("\n Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
@@ -660,6 +765,10 @@ public static void main(String[] args) {
 			vida = vida+sorte;
 			System.out.println("O seu teste da sorte foi: " + sorte);
 			System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+		}
+		if(vida<=0) {
+			System.out.println("GAME OVER");
+			System.exit(0);
 		}
 		
 	System.out.println("Respondeu-a e a sétima apareceu logo em seguida. \n");
@@ -676,8 +785,8 @@ public static void main(String[] args) {
 		System.out.println("E- 160");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -685,7 +794,7 @@ public static void main(String[] args) {
 				break;
 			case "B":
 				System.out.println("Resposta correta \n");
-				res1 = "B";
+				resposta = "B";
 				break;
 			case "C":
 				System.out.println("Resposta incorreta");
@@ -702,9 +811,17 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+			default:
+				System.out.println("Resposta inválida");
+				break;
 			}
-		}while(res1 != "B");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta != "B");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 		
 		else if (direcao == 2) {
@@ -718,11 +835,11 @@ public static void main(String[] args) {
 			System.out.println("E- 64192");
 			do {
 				
-				res1 = entrada.next().toUpperCase();
-				switch(res1) {
+				resposta = entrada.next().toUpperCase();
+				switch(resposta) {
 				case "A":
 					System.out.println("Resposta correta \n");
-					res1 = "A";
+					resposta = "A";
 					break;
 				case "B":
 					System.out.println("Resposta incorreta");
@@ -744,9 +861,17 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+				default:
+					System.out.println("Resposta inválida");
+					break;
 				}
-			}while(res1 != "A");
-			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+				if(vida<=0) {
+					System.out.println("Os pontos de vida são: "+vida+"\n");
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			}while(resposta != "A");
+			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 	//continuacao da historia
 	System.out.print(" Quando "+nickname+" as respondeu, ficou se perguntando se tinha as acertado, e então a porta se abriu. "+nickname+" atravessou a porta e rapidamente \n"
@@ -777,8 +902,8 @@ public static void main(String[] args) {
 		System.out.println("E- 145");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -796,16 +921,24 @@ public static void main(String[] args) {
 				break;
 			case "D":
 				System.out.println("Resposta correta\n");
-				res1 = "D";
+				resposta = "D";
 				break;
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+			default:
+				System.out.println("Resposta inválida");
+				break;
 			}
-		}while(res1 != "D");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta != "D");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 		else if(direcao == 2) {
 			System.out.println("“OITAVA PERGUNTA”.\n");
@@ -818,8 +951,8 @@ public static void main(String[] args) {
 			System.out.println("E- 1064");
 			do {
 				
-				res1 = entrada.next().toUpperCase();
-				switch(res1) {
+				resposta = entrada.next().toUpperCase();
+				switch(resposta) {
 				case "A":
 					System.out.println("Resposta incorreta");
 					tentativa++;
@@ -837,16 +970,24 @@ public static void main(String[] args) {
 					break;
 				case "D":
 					System.out.println("Resposta correta\n");
-					res1 = "D";
+					resposta = "D";
 					break;
 				case "E":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+				default:
+					System.out.println("Resposta inválida");
+					break;
 				}
-			}while(res1 != "D");
-			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+				if(vida<=0) {
+					System.out.println("Os pontos de vida são: "+vida+"\n");
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			}while(resposta != "D");
+			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 	// teste sua sorte
 	System.out.println("\n Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
@@ -859,6 +1000,10 @@ public static void main(String[] args) {
 		vida = vida+sorte;
 		System.out.println("O seu teste da sorte foi: " + sorte);
 		System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+	}
+	if(vida<=0) {
+		System.out.println("GAME OVER");
+		System.exit(0);
 	}
 	
 	// nono questionario
@@ -873,8 +1018,8 @@ public static void main(String[] args) {
 		System.out.println("E- 34");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -882,7 +1027,7 @@ public static void main(String[] args) {
 				break;
 			case "B":
 				System.out.println("Resposta correta\n");
-				res1 = "B";
+				resposta = "B";
 				break;
 			case "C":
 				System.out.println("Resposta incorreta");
@@ -899,9 +1044,17 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+			default:
+				System.out.println("Resposta inválida");
+				break;
 			}
-		}while(res1 !="B");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta !="B");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 		else if (direcao == 1) {
 			System.out.println("“NONA PERGUNTA”.\n");
@@ -914,8 +1067,8 @@ public static void main(String[] args) {
 			System.out.println("E- 124");
 			do {
 				
-				res1 = entrada.next().toUpperCase();
-				switch(res1) {
+				resposta = entrada.next().toUpperCase();
+				switch(resposta) {
 				case "A":
 					System.out.println("Resposta incorreta");
 					tentativa++;
@@ -928,7 +1081,7 @@ public static void main(String[] args) {
 					break;
 				case "C":
 					System.out.println("Resposta correta\n");
-					res1 = "C";
+					resposta = "C";
 					
 					break;
 				case "D":
@@ -941,9 +1094,17 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+				default:
+					System.out.println("Resposta inválida");
+					break;
 				}
-			}while(res1 !="C");
-			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+				if(vida<=0) {
+					System.out.println("Os pontos de vida são: "+vida+"\n");
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			}while(resposta !="C");
+			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 	
 	//continuacao da historia
@@ -971,8 +1132,8 @@ public static void main(String[] args) {
 		System.out.println("E- 82");
 		do {
 			
-			res1 = entrada.next().toUpperCase();
-			switch(res1) {
+			resposta = entrada.next().toUpperCase();
+			switch(resposta) {
 			case "A":
 				System.out.println("Resposta incorreta");
 				tentativa++;
@@ -995,11 +1156,19 @@ public static void main(String[] args) {
 				break;
 			case "E":
 				System.out.println("Resposta correta \n");
-				res1 = "E";
+				resposta = "E";
+				break;
+			default:
+				System.out.println("Resposta inválida");
 				break;
 			}
-		}while(res1 != "E");
-		System.out.println("Os pontos de vida atual são: "+vida+"\n");
+			if(vida<=0) {
+				System.out.println("Os pontos de vida são: "+vida+"\n");
+				System.out.println("GAME OVER");
+				System.exit(0);
+			}
+		}while(resposta != "E");
+		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 		else if(direcao == 1) {
 			System.out.println("“DECIMA PERGUNTA” \n");
@@ -1011,8 +1180,8 @@ public static void main(String[] args) {
 			System.out.println("E- 133");
 			do {
 				
-				res1 = entrada.next().toUpperCase();
-				switch(res1) {
+				resposta = entrada.next().toUpperCase();
+				switch(resposta) {
 				case "A":
 					System.out.println("Resposta incorreta");
 					tentativa++;
@@ -1030,16 +1199,24 @@ public static void main(String[] args) {
 					break;
 				case "D":
 					System.out.println("Resposta correta\n");
-					res1 = "D";
+					resposta = "D";
 					break;
 				case "E":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+				default:
+					System.out.println("Resposta inválida");
+					break;
 				}
-			}while(res1 != "D");
-			System.out.println("Os pontos de vida atual são: "+vida+"\n");
+				if(vida<=0) {
+					System.out.println("Os pontos de vida são: "+vida+"\n");
+					System.out.println("GAME OVER");
+					System.exit(0);
+				}
+			}while(resposta != "D");
+			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 	
 	// continuacao da historia
@@ -1052,7 +1229,6 @@ public static void main(String[] args) {
 			+ " Retiraram a substancia do cérebro de "+nickname+" e ofereceu recursos para que ele pudesse viver bem e em segurança.\n"
 			+ "3 anos depois esta doença tinha sido extinta e a humanidade venceu um novo desafio.\n\n");
 	
-	//agradecimentos
 	System.out.println("OBRIGADO POR JOGAR");
 }
 }
