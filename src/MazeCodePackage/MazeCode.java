@@ -2,9 +2,39 @@ package MazeCodePackage;
 import java.util.Scanner;
 import java.util.Random;
 public class MazeCode {
+	
+	// metodo game over
+	public static void gameover(int vida) {
+		if(vida<=0) {
+			System.out.println("Os pontos de vida são: "+vida+"\n");
+			System.out.println("GAME OVER");
+			System.exit(0);
+		}
+	}
+	
+	//metodo teste sua sorte
+	public static int testesorte(int vida) {
+		Random aleatorio = new Random();
+		int sorte;
+		
+			System.out.println("Que a sorte esteja a seu favor.\n");
+			sorte = aleatorio.nextInt(5) - 2 ;
+			
+			vida = vida+sorte;
+			
+			System.out.println("O seu teste da sorte foi: " + sorte);
+			System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
+			
+		if(vida<=0) {
+			System.out.println("GAME OVER");
+			System.exit(0);
+		}
+		
+		return(vida);
+	}
+	
 public static void main(String[] args) {
 	Scanner entrada = new Scanner (System.in);
-	Random aleatorio = new Random();
 	
 	System.out.println("Seja bem vindo ao MAZE CODE");
 	//var nome
@@ -18,13 +48,11 @@ public static void main(String[] args) {
 	
 	//teste sua sorte
 	int teste = 0;
-	int sorte;
 	
 	//var primeira questao
 	String resposta = "A";
 	int tentativa = 0;
 	 
-	 // fazer menu para entrar no jogo 
 	 System.out.print("Digite seu nome para iniciar o jogo: ");
 	 nickname = entrada.next();
 	 
@@ -78,36 +106,45 @@ public static void main(String[] args) {
 				case "A":
 					System.out.println("Resposta correta \n");
 					resposta = "A";
+					System.out.println("A base do sistema binário é 2 então só pode ser composta por 0 e 1");
 					break;
+					
 				case "B":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "C":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "D":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "E":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				default:
 					System.out.println("Resposta inválida");
 					break;
 				}
-				if(vida<=0) {
-					System.out.println("Os pontos de vida são: "+vida+"\n");
-					System.out.println("GAME OVER");
-					System.exit(0);
+				
+				if (tentativa == 2) {
+					System.out.println("Dica: Os números binários são compostos por 0 e 1");
+					tentativa=0;
 				}
+				
+				gameover(vida);
+				
 			}while(resposta != "A");
 			System.out.println("Os pontos de vida são: "+vida+"\n");
 			
@@ -129,34 +166,42 @@ public static void main(String[] args) {
 						tentativa++;
 						vida--;
 						break;
+						
 					case "B":
 						System.out.println("Resposta incorreta");
 						tentativa++;
 						vida--;
 						break;
+						
 					case "C":
 						System.out.println("Resposta incorreta");
 						tentativa++;
 						vida--;
 						break;
+						
 					case "D":
 						System.out.println("Resposta correta \n");
 						resposta = "D";
+						System.out.println("O número 11 pode ser representado como 10(2) + 01(2) em base binário por isso o resultado 3");
 						break;
+						
 					case "E":
 						System.out.println("Resposta incorreta");
 						tentativa++;
 						vida--;
 						break;
+						
 					default:
 						System.out.println("Resposta inválida");
 						break;
 					}
-					if(vida<=0) {
-						System.out.println("Os pontos de vida são: "+vida+"\n");
-						System.out.println("GAME OVER");
-						System.exit(0);
-					}
+					if (tentativa == 2) {
+						System.out.println("\nDica: Para chegar ao resultado deve ser somado cada bit binário pela potencia de sua posição e depois somar os resultados");
+						tentativa=0;
+						}
+					
+					gameover(vida);
+					
 				}while(resposta != "D");
 				System.out.println("Os pontos de vida são: "+vida+"\n");
 			}
@@ -175,7 +220,6 @@ public static void main(String[] args) {
 			+ nickname +" pegou o aparelho ao lado e a pergunta apareceu na tela. \n");
 	
 	// segundo questionario
-	
 	if (direcao == 2) {	
 		System.out.println("“SEGUNDA PERGUNTA” \n");
 		System.out.println("O que são portas lógicas e circuitos lógicos: ");
@@ -193,34 +237,43 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta correta \n");
 				resposta = "B";
+				System.out.println("Portas lógicas servem para operar um sistema com apenas uma saida, exempo: ligar e desligar o interruptor de uma lampada");
 				break;
+				
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "D":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			
+			if (tentativa == 2) {
+				System.out.println("\nDica: Possuem entradas e saída");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta != "B");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -241,52 +294,52 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+					
 				case "B":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "C":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "D":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "E":
 					System.out.println("Resposta correta \n");
 					resposta = "E";
+					System.out.println("Esses são os nomes dados as portas lógicas para definir a operação usada para chegar a saída do circuito");
 					break;
+					
 				default:
 					System.out.println("Resposta inválida");
 					break;
 				}
-				if(vida<=0) {
-					System.out.println("Os pontos de vida são: "+vida+"\n");
-					System.out.println("GAME OVER");
-					System.exit(0);
-				}
+				if (tentativa == 2) {
+					System.out.println("\nDica: leia o nome de cada porta lógica com atenção e fique atento aos detalhes");
+					tentativa=0;
+					}
+				
+				gameover(vida);
+				
 			}while(resposta != "E");
 			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
 	// teste sua sorte
-		System.out.println("\n Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
+		System.out.println(" Você se deparou com um teste opcional que irá testar sua sorte para ganhar ou perder pontos de vida. Deseja continuar?");
 		System.out.println("1. SIM");
 		System.out.println("2. NÃO");
 		teste = entrada.nextInt();
 		if (teste == 1) {
-			System.out.println("Que a sorte esteja a seu favor.\n");
-			sorte = aleatorio.nextInt(5) - 2 ;
-			vida = vida+sorte;
-			System.out.println("O seu teste da sorte foi: " + sorte);
-			System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
-		}
-		if(vida<=0) {
-			System.out.println("GAME OVER");
-			System.exit(0);
+			vida = testesorte(vida);
 		}
 	//continuacao da historia
 	System.out.println("Continuou avançando, desta vez os barulhos esquisitos que vinha ouvindo no caminho parecia estar ficando cada vez mais próximos, o que o deixou um pouco aflito. \n");
@@ -322,41 +375,49 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta correta \n");
 				resposta = "B";
-				
+				System.out.println("A porta E(and) é representada por * para sinalizar que se ouver apenas uma porta 1 a saída ainda será 0");
 				break;
+				
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "D":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			
+			if (tentativa == 2) {
+				System.out.println("\nDica: Para que a saída dessa porta seja 1 deve se MULTIPLICAR todas as entradas");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta != "B");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 	}
 	else if(direcao == 2) {
 		System.out.println("“TERCEIRA PERGUNTA” \n");
-		System.out.println("Qual sinal representa a porta OU:");
+		System.out.println("Qual sinal representa a porta OU (OR):");
 		System.out.println("A- *");
 		System.out.println("B- +");
 		System.out.println("C- !");
@@ -371,35 +432,42 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta correta \n");
 				resposta = "B";
-				
+				System.out.println("A porta OU(OR) é representada por + para sinalizar que se ouver qualquer porta 1 a saída sera 1");
 				break;
+				
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "D":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			if (tentativa == 2) {
+				System.out.println("\nDica: Essa porta lógica trabalha com a SOMA lógica");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta != "B");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 	}
@@ -438,34 +506,42 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "C":
 				System.out.println("Resposta correta \n");
 				resposta = "C";
+				System.out.println("As letras de A até F compõem os numeros hexadecimais que em decimal seriam representados de 10 a 15 ");
 				break;
+				
 			case "D":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			if (tentativa == 2) {
+				System.out.println("\nDica: Os numeros hexadecimais tem base (16). Os números presentes vão até o 9 e depois são compostos por letras em ordem alfabetica.");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta != "C");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -486,34 +562,43 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+					
 				case "B":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "C":
 					System.out.println("Resposta correta \n");
 					resposta = "C";
+					System.out.println("Esse é o resultado da multiplicação de cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e a soma dos resultados");
 					break;
+					
 				case "D":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "E":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				default:
 					System.out.println("Resposta inválida");
 					break;
 				}
-				if(vida<=0) {
-					System.out.println("Os pontos de vida são: "+vida+"\n");
-					System.out.println("GAME OVER");
-					System.exit(0);
-				}
+				
+				if (tentativa == 2) {
+					System.out.println("\nDica: Para chegar ao resultado multiplique cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e depois some os resultados");
+					tentativa=0;
+					}
+				
+				gameover(vida);
+				
 			}while(resposta != "C");
 			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -525,16 +610,8 @@ public static void main(String[] args) {
 	System.out.println("2. NÃO");
 	teste = entrada.nextInt();
 	if (teste == 1) {
-		System.out.println("Que a sorte esteja a seu favor.\n");
-		sorte = aleatorio.nextInt(5) - 2 ;
-		vida = vida+sorte;
-		System.out.println("O seu teste da sorte foi: " + sorte);
-		System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
-	}
-	if(vida<=0) {
-		System.out.println("GAME OVER");
-		System.exit(0);
-	}
+		vida = testesorte(vida);
+		}
 	
 	System.out.println("Quando respondeu, as portas continuaram intactas, não entendia o porquê, mesmo se tivesse errado a resposta uma das portas abriria, então olhou novamente para \n"
 			+ "o aparelho e a mensagem de voz voltou “Ah, esquecemos de te avisar! Agora para cada passagem que terá que ser aberta, duas perguntas terão que ser respondidas, \n"
@@ -559,34 +636,43 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta correta \n");
 				resposta = "B";
+				System.out.println("Esse é o resultado da multiplicação de cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e a soma dos resultados");
 				break;
+				
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "D":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			
+			if (tentativa == 2) {
+				System.out.println("\nDica: Para chegar ao resultado multiplique cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e depois some os resultados");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta != "B");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -607,34 +693,44 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+					
 				case "B":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "C":
 					System.out.println("Resposta correta \n");
 					resposta = "C";
+					System.out.println("Esse é o resultado da multiplicação de cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e a soma dos resultados");
 					break;
+					
 				case "D":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "E":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				default:
 					System.out.println("Resposta inválida");
 					break;
 				}
-				if(vida<=0) {
-					System.out.println("Os pontos de vida são: "+vida+"\n");
-					System.out.println("GAME OVER");
-					System.exit(0);
-				}
+				
+				if (tentativa == 2) {
+					System.out.println("\nDica: Para chegar ao resultado deve se realizar a divisão sucessiva do numero decimal por 16 (base do sistema hexadecimal).");
+					System.out.println("O resultado será dado pelo ultimo quociente e o agupamento dos restos das divisões.");
+					tentativa=0;
+					}
+				
+				gameover(vida);
+				
 			}while(resposta != "C");
 			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}		
@@ -674,34 +770,44 @@ public static void main(String[] args) {
 			tentativa++;
 			vida--;
 			break;
+			
 		case "B":
 			System.out.println("Resposta incorreta");
 			tentativa++;
 			vida--;
 			break;
+			
 		case "C":
 			System.out.println("Resposta correta \n");
 			resposta = "C";
+			System.out.println("É o resultado da divisão sucessiva do numero decimal por 2 (base do sistema binário)");
 			break;
+			
 		case "D":
 			System.out.println("Resposta incorreta");
 			tentativa++;
 			vida--;
 			break;
+			
 		case "E":
 			System.out.println("Resposta incorreta");
 			tentativa++;
 			vida--;
 			break;
+			
 		default:
 			System.out.println("Resposta inválida");
 			break;
 		}
-		if(vida<=0) {
-			System.out.println("Os pontos de vida são: "+vida+"\n");
-			System.out.println("GAME OVER");
-			System.exit(0);
-		}
+		
+		if (tentativa == 2) {
+			System.out.println("\nDica: Para chegar ao resultado deve se realizar a divisão sucessiva do numero decimal por 2 (base do sistema binário).");
+			System.out.println("O resultado será dado pelo ultimo quociente e o agupamento dos restos das divisões.");
+			tentativa=0;
+			}
+		
+		gameover(vida);
+		
 	}while(resposta != "C");
 	System.out.println("Os pontos de vida são: "+vida+"\n");
 	 }
@@ -723,34 +829,44 @@ public static void main(String[] args) {
 						tentativa++;
 						vida--;
 						break;
+						
 					case "B":
 						System.out.println("Resposta correta\n");
 						resposta = "B";
+						System.out.println("É o resultado da divisão sucessiva do numero decimal por 2 (base do sistema binário)");
 						break;
+						
 					case "C":
 						System.out.println("Resposta incorreta");
 						tentativa++;
 						vida--;
 						break;
+						
 					case "D":
 						System.out.println("Resposta incorreta");
 						tentativa++;
 						vida--;
 						break;
+						
 					case "E":
 						System.out.println("Resposta incorreta");
 						tentativa++;
 						vida--;
 						break;
+						
 					default:
 						System.out.println("Resposta inválida");
 						break;
 					}
-					if(vida<=0) {
-						System.out.println("Os pontos de vida são: "+vida+"\n");
-						System.out.println("GAME OVER");
-						System.exit(0);
-					}
+					
+					if (tentativa == 2) {
+						System.out.println("\nDica: Para chegar ao resultado deve se realizar a divisão sucessiva do numero decimal por 2 (base do sistema binário).");
+						System.out.println("O resultado será dado pelo ultimo quociente e o agupamento dos restos das divisões.");
+						tentativa=0;
+						}
+					
+					gameover(vida);
+					
 				}while(resposta != "B");
 				System.out.println("Os pontos de vida são: "+vida+"\n");
 	 }
@@ -760,15 +876,7 @@ public static void main(String[] args) {
 		System.out.println("2. NÃO");
 		teste = entrada.nextInt();
 		if (teste == 1) {
-			System.out.println("Que a sorte esteja a seu favor.\n");
-			sorte = aleatorio.nextInt(5) - 2 ;
-			vida = vida+sorte;
-			System.out.println("O seu teste da sorte foi: " + sorte);
-			System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
-		}
-		if(vida<=0) {
-			System.out.println("GAME OVER");
-			System.exit(0);
+			vida = testesorte(vida);
 		}
 		
 	System.out.println("Respondeu-a e a sétima apareceu logo em seguida. \n");
@@ -792,34 +900,43 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta correta \n");
 				resposta = "B";
+				System.out.println("É o resultado da multiplicação cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e a soma dos resultados");
 				break;
+				
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "D":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			
+			if (tentativa == 2) {
+				System.out.println("\nDica: Para chegar ao resultado multiplique cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e depois some os resultados");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta != "B");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -840,36 +957,45 @@ public static void main(String[] args) {
 				case "A":
 					System.out.println("Resposta correta \n");
 					resposta = "A";
+					System.out.println("É o resultado da multiplicação cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e a soma dos resultados");
 					break;
+					
 				case "B":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "C":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "D":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "E":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				default:
 					System.out.println("Resposta inválida");
 					break;
 				}
-				if(vida<=0) {
-					System.out.println("Os pontos de vida são: "+vida+"\n");
-					System.out.println("GAME OVER");
-					System.exit(0);
-				}
+				
+				if (tentativa == 2) {
+					System.out.println("\nDica: Para chegar ao resultado multiplique cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e depois some os resultados");
+					tentativa=0;
+					}
+				
+				gameover(vida);
+				
 			}while(resposta != "A");
 			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -909,34 +1035,44 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "D":
 				System.out.println("Resposta correta\n");
 				resposta = "D";
+				System.out.println("É o resultado da divisão sucessiva do numero decimal por 8 (base do sistema octal");
 				break;
+				
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			
+			if (tentativa == 2) {
+				System.out.println("\nDica: Para converter um número decimal em octal deve se realizar a divisão sucessiva do numero decimal por 8 (base do sistema octal).");
+				System.out.println("O resultado será dado pelo ultimo quociente e o agupamento dos restos das divisões.");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta != "D");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -958,34 +1094,43 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+					
 				case "B":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "C":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "D":
 					System.out.println("Resposta correta\n");
 					resposta = "D";
+					System.out.println("É o resultado da divisão sucessiva do numero decimal por 8 (base do sistema octal");
 					break;
+					
 				case "E":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				default:
 					System.out.println("Resposta inválida");
 					break;
 				}
-				if(vida<=0) {
-					System.out.println("Os pontos de vida são: "+vida+"\n");
-					System.out.println("GAME OVER");
-					System.exit(0);
-				}
+				
+				if (tentativa == 2) {
+					System.out.println("\nDica: Para converter um número decimal em octal deve se realizar a divisão sucessiva do numero decimal por 8 (base do sistema octal).");
+					System.out.println("O resultado será dado pelo ultimo quociente e o agupamento dos restos das divisões.");
+					tentativa=0;
+					}
+				
+				gameover(vida);
 			}while(resposta != "D");
 			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -995,15 +1140,9 @@ public static void main(String[] args) {
 	System.out.println("2. NÃO");
 	teste = entrada.nextInt();
 	if (teste == 1) {
-		System.out.println("Que a sorte esteja a seu favor.\n");
-		sorte = aleatorio.nextInt(5) - 2 ;
-		vida = vida+sorte;
-		System.out.println("O seu teste da sorte foi: " + sorte);
-		System.out.println("A seus pontos de vida atuais são: "+vida+"\n");
-	}
-	if(vida<=0) {
-		System.out.println("GAME OVER");
-		System.exit(0);
+		
+		vida = testesorte(vida);
+		
 	}
 	
 	// nono questionario
@@ -1025,34 +1164,44 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta correta\n");
 				resposta = "B";
+				System.out.println("É o resultado da conversão dígito a dígito de octal para binário, da direita para a esquerda");
 				break;
+				
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "D":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "E":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			
+			if (tentativa == 2) {
+				System.out.println("\nDica: A conversão de octal para binário é feita convertendo dígito a dígito de octal para binário, da direita para a esquerda.");
+				System.out.println("Cada digito é convertido para um grupo de 3bits em binário.");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta !="B");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -1074,35 +1223,44 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+					
 				case "B":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "C":
 					System.out.println("Resposta correta\n");
 					resposta = "C";
-					
+					System.out.println("É o resultado da conversão dígito a dígito de octal para binário, da direita para a esquerda");
 					break;
+					
 				case "D":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "E":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				default:
 					System.out.println("Resposta inválida");
 					break;
 				}
-				if(vida<=0) {
-					System.out.println("Os pontos de vida são: "+vida+"\n");
-					System.out.println("GAME OVER");
-					System.exit(0);
-				}
+				
+				if (tentativa == 2) {
+					System.out.println("\nDica: A conversão de octal para binário é feita convertendo dígito a dígito de octal para binário, da direita para a esquerda.");
+					System.out.println("Cada digito é convertido para um grupo de 3bits em binário.");
+					tentativa=0;
+					}
+				
+				gameover(vida);
+				
 			}while(resposta !="C");
 			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -1139,34 +1297,43 @@ public static void main(String[] args) {
 				tentativa++;
 				vida--;
 				break;
+				
 			case "B":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "C":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "D":
 				System.out.println("Resposta incorreta");
 				tentativa++;
 				vida--;
 				break;
+				
 			case "E":
 				System.out.println("Resposta correta \n");
 				resposta = "E";
+				System.out.println("É o resultado da multiplicação de cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e a soma dos resultados");
 				break;
+				
 			default:
 				System.out.println("Resposta inválida");
 				break;
 			}
-			if(vida<=0) {
-				System.out.println("Os pontos de vida são: "+vida+"\n");
-				System.out.println("GAME OVER");
-				System.exit(0);
-			}
+			
+			if (tentativa == 2) {
+				System.out.println("\nDica: Para chegar ao resultado multiplique cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e depois some os resultados");
+				tentativa=0;
+				}
+			
+			gameover(vida);
+			
 		}while(resposta != "E");
 		System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
@@ -1187,34 +1354,43 @@ public static void main(String[] args) {
 					tentativa++;
 					vida--;
 					break;
+					
 				case "B":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "C":
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				case "D":
 					System.out.println("Resposta correta\n");
 					resposta = "D";
+					System.out.println("É o resultado da multiplicação de cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e a soma dos resultados");
 					break;
 				case "E":
+					
 					System.out.println("Resposta incorreta");
 					tentativa++;
 					vida--;
 					break;
+					
 				default:
 					System.out.println("Resposta inválida");
 					break;
 				}
-				if(vida<=0) {
-					System.out.println("Os pontos de vida são: "+vida+"\n");
-					System.out.println("GAME OVER");
-					System.exit(0);
-				}
+				
+				if (tentativa == 2) {
+					System.out.println("\nDica: Para chegar ao resultado multiplique cada digito do numero hexadecimal pela potencia 16 relativa a sua posição e depois some os resultados");
+					tentativa=0;
+					}
+				
+				gameover(vida);
+				
 			}while(resposta != "D");
 			System.out.println("Os pontos de vida são: "+vida+"\n");
 		}
